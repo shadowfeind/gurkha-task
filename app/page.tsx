@@ -1,6 +1,3 @@
-
 export default function Home() {
-  return (
-   <div>Hello Gurkha task manager</div>
-  )
+  return <div>Hello Gurkha task manager</div>;
 }
