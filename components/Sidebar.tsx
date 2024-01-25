@@ -26,7 +26,7 @@ const Sidebar = ({ storageKey = "sidebar-state" }: storageProps) => {
     },
   ];
   return (
-    <div>
+    <>
       {routes.map((route: NavItemProps) => (
         <>
           <SidebarItems
@@ -38,7 +38,7 @@ const Sidebar = ({ storageKey = "sidebar-state" }: storageProps) => {
           />
         </>
       ))}
-    </div>
+    </>
   );
 };
 
