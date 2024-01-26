@@ -28,15 +28,13 @@ const Sidebar = ({ storageKey = "sidebar-state" }: storageProps) => {
   return (
     <>
       {routes.map((route: NavItemProps) => (
-        <>
-          <SidebarItems
-            key={route.link}
-            name={route.name}
-            icon={route.icon}
-            link={route.link}
-            isActive={route.isActive}
-          />
-        </>
+        <SidebarItems
+          key={route.link}
+          name={route.name}
+          icon={route.icon}
+          link={route.link}
+          isActive={route.isActive}
+        />
       ))}
     </>
   );
