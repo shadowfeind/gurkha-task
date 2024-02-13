@@ -1,3 +1,9 @@
+import LoginForm from "@/components/signIn/LoginForm";
+
 export default function Home() {
-  return <div>Hello Gurkha task manager</div>;
+  return (
+    <div className="h-full bg-slate-800 flex flex-col justify-center align-middle items-center">
+      <LoginForm />
+    </div>
+  );
 }

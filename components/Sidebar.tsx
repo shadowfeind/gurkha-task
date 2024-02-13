@@ -13,16 +13,16 @@ const Sidebar = ({ storageKey = "sidebar-state" }: storageProps) => {
 
   const routes = [
     {
-      name: "Users",
-      icon: <User className="w-4 h-4 mr-2" />,
-      link: "/users",
-      isActive: pathname === "/users",
-    },
-    {
       name: "Tasks",
       icon: <Activity className="w-4 h-4 mr-2" />,
-      link: "/tasks",
+      link: "/dashboard/tasks",
       isActive: pathname === "/tasks",
+    },
+    {
+      name: "Users",
+      icon: <User className="w-4 h-4 mr-2" />,
+      link: "/dashboard/users",
+      isActive: pathname === "/users",
     },
   ];
   return (
