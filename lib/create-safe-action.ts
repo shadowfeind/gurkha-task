@@ -1,27 +1,28 @@
-import * as z from 'zod'
+import * as z from "zod";
 
 export type FieldsErrors<T> = {
-    [K in keyof T]?: string[]
-}
+  [K in keyof T]?: string[];
+};
 
 export type ActionState<TInput, TOutput> = {
-    fieldErrors?: FieldsErrors<TInput>
-    error?: string | null 
-    data?: TOutput
-}
+  fieldErrors?: FieldsErrors<TInput>;
+  error?: string | null;
+  data?: TOutput;
+};
 
 export const createSafeAction = <TInput, TOutput>(
-    schema: z.Schema<TInput>,
-    handler: (validatedData: TInput) => Promise<ActionState<TInput,TOutput>>
+  schema: z.Schema<TInput>,
+  handler: (validatedData: TInput) => Promise<ActionState<TInput, TOutput>>
 ) => {
-    return async (data: TInput) : Promise<ActionState<TInput, TOutput>> => {
-        const validationResult = schema.safeParse(data)
+  return async (data: TInput): Promise<ActionState<TInput, TOutput>> => {
+    const validationResult = schema.safeParse(data);
 
-        if(!validationResult.success){
-            return {
-                fieldErrors: validationResult.error.flatten().fieldErrors as FieldsErrors<TInput>
-            }
-        }
-        return handler(validationResult.data)
+    if (!validationResult.success) {
+      return {
+        fieldErrors: validationResult.error.flatten()
+          .fieldErrors as FieldsErrors<TInput>,
+      };
     }
-}
+    return handler(validationResult.data);
+  };
+};

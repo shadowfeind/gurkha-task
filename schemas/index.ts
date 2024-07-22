@@ -1,10 +1,10 @@
-import * as z from 'zod'
+import * as z from "zod";
 
 export const loginSchema = z.object({
-    userName: z.string().min(5,{
-        message: "must be atleast 5 letters long"
-    }),
-    password: z.string().min(5,{
-        message: "must be atleast 5 letters long"
-    })
-})
+  userName: z.string().min(5, {
+    message: "must be at least 5 letters long",
+  }),
+  password: z.string().min(5, {
+    message: "must be at least 5 letters long",
+  }),
+});

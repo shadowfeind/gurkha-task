@@ -1,10 +1,12 @@
-import * as z from 'zod'
+import * as z from "zod";
 
 export const CreateBoard = z.object({
-    title: z.string({
-        required_error: "Title is required",
-        invalid_type_error: "Title is required"
-    }).min(3, {
-        message: "Must contain minimun of 3 letters"
+  title: z
+    .string({
+      required_error: "Title is required",
+      invalid_type_error: "Title is required",
     })
-})
+    .min(3, {
+      message: "Must contain minimum of 3 letters",
+    }),
+});
